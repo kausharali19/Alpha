@@ -1,0 +1,44 @@
+<div style="margin-top:40px">
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h3 style="color:darkslategrey">Latest Plans</h3>
+
+    </div>
+</div>
+
+    <div class="row" >
+        <div class="col-md-12">
+            <div class="card mycard" *ngFor="let item of allPlans">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="assets/images/Alpha_Plans.png" height="100px">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                
+                                <div class="col-md-11 ">
+                                    <h6>{{item.Name}}</h6>
+                                    <div>Price : <span>{{item.Price}}</span></div>
+                                    <div>Validity : <span>{{item.Validity}}</span></div>
+                                    <div>Benefit : <span>{{item.Benefit}} Rs/Day</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                               
+                                <div class="col-md-4 ">
+                                    <button (click)="invest(item.Id)" class="btn btn-primary">Invest</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+</div>

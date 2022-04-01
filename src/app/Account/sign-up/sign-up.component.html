@@ -1,0 +1,31 @@
+
+
+
+
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form [formGroup]='registerForm'>
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<input  formControlName="firstName" placeholder="First Name.." type="text" name="firstName" class="form-control" required>
+                    <input  formControlName="lastName"  placeholder="Last Name.." type="text" name="lastName" class="form-control" required>
+                    <input  formControlName="email" type="email" placeholder="Email.." name="email" class="form-control" required>
+                    <input  formControlName="password"  #password type="password" formControlName='password' name="password" placeholder="password.."  class="form-control" required >
+                    <input (keyup)="comparePassword(password.value,confirmPassword.value)" #confirmPassword type="password"  formControlName="confirmPassword" name="confirmPassword" placeholder="Confirm password.."  class="form-control" required >
+					<input  formControlName="referalCode" type="text" placeholder="Referal Code..(Optional)" name="referalCode" class="form-control" >
+                    <button (click)="register()" [disabled]="registerForm.invalid  && isPasswordAndConfirmPasswordMatch==false "  type="submit" >Signup</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form [formGroup]="loginForm">
+					<label for="chk" aria-hidden="true">Login</label>
+					<input formControlName="email" type="email" name="email" placeholder="Email" required="required">
+					<input formControlName="password" type="password" name="pswd" placeholder="Password" required="required">
+					<button [disabled]="loginForm.invalid" (click)="login()" type="submit" >Login</button>
+				</form>
+			</div>
+	</div>
+</body>

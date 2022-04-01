@@ -1,0 +1,89 @@
+<div class="card" style="margin-top: 30px;">
+    <div class="card-body">
+        <div class="container rounded bg-white mt-5 mb-5">
+
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                        <div>
+                            <img class="rounded-circle mt-5" width="150px"
+                                src="https://localhost:44325/profileImage/{{profileImageData.profilePicName}}">
+                        </div>
+
+                        <label for="inputUpload" class="custom-file-upload btn btn-link"><i
+                                class="fa fa-edit"></i><span>Edit Profile</span></label>
+                        <input (change)="addProfile($event)" id="inputUpload" type="file" />
+                        <span class="font-weight-bold">{{profileData.First_Name}} {{profileData.Last_Name}}</span>
+                        <span class="text-black-50">{{profileData.Email}}</span><br>
+                        <h6 style="font-style: italic; color: blue;">Referal Code : <span style="border: 1px solid gray; font-style: normal; font-size: small;">{{referalCode.referalCode}}</span></h6>
+                        <span>Refer and Earn 200 Rs</span>
+                        <span>When your referal does his first deposite</span>
+                    </div>
+                </div>
+                <div class="col-md-5 border-right">
+
+                    <form [formGroup]="profileForm">
+                        <div class="p-3 py-5 ">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="text-right">Profile Settings</h4>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6"><label class="labels">First Name</label><input
+                                        formControlName="First_Name" type="text" class="form-control"
+                                        placeholder="first name">
+                                </div>
+                                <div class="col-md-6"><label class="labels">Last Name</label><input
+                                        formControlName="Last_Name" type="text" class="form-control"
+                                        placeholder="surname"></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12 inputbox mt-3"><label class="labels">Phone Number</label><input
+                                        formControlName="PhoneNumber" type="number" class="form-control"
+                                        placeholder="Enter phone number"></div>
+                                <div class="col-md-12"><label class="labels">Address</label><input
+                                        formControlName="Address" type="text" class="form-control"
+                                        placeholder="Enter address "></div>
+                            </div>
+                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
+                                    (click)="saveProfile()" type="button">Save Profile</button></div>
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center experience">
+                            <h4>Bank Details</h4><button routerLink="../bank" class="border px-3 p-1 add-experience"><i
+                                    class="fa fa-plus"></i>&nbsp;Add Bank</button>
+                        </div><br>
+
+                        <div *ngIf="bankData == null" class="title text-danger">
+                            No bank Account Added yet. Add your bank from above given button
+                        </div>
+                        <div class="text-uppercase" *ngIf="bankData != null">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="col-md-12">
+                                        <h6>{{bankData.bankHolderName}}</h6>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h6>{{bankData.bankAccountNumber}}</h6>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h6>{{bankData.bankIfsc}}</h6>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h6>{{bankData.bankName}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

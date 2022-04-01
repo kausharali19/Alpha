@@ -1,0 +1,87 @@
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="container1 bg-light  ">
+                <div class="card box1 shadow-sm">
+                    <div class="d-flex align-items-center justify-content-between p-md-5 p-4">
+                        <div>
+                            <span class="h5 fw-bold m-0">
+                                Instructions
+                            </span>
+                        </div>
+    
+                       
+                    </div>
+                    <div style="margin-left: 5px;">
+                        <h6 style="color: grey;">Step 1: Minimum 1000 Rs can be Added</h6>
+                        <br>
+                        <h6 style="color: grey;">Step 2: Amount can be added via UPI using GooglePay , PhonePay , Paytm</h6>
+                        <br>
+                        <h6 style="color: grey;">Step 3: Send Money on given UPI Id- <span class=" link-primary">kaushar.official1271252@okaxis</span></h6>
+                        <br>
+                        <h6 style="color: grey;">Step 4: Enter Amount and Transaction Id</h6>
+                        <br>
+                        <h6 style="color: grey;">Step 5: Make Sure Transaction Id is cross checked before Submit</h6>
+                        <br>
+                        <h6 style="color: grey;">Step 6: Verification can take upto 2 hours </h6>
+                        <br>
+                        <h6 style="color: grey;">Step 7: Once your transaction is verified. The deposited Amount will be reflected to your portfolio</h6>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-6">
+            <div  class="col-md-8">
+                <div class="container2 bg-light d-md-flex align-items-center">
+        
+                    <div class="card box2 shadow-sm">
+                        <div class="d-flex align-items-center justify-content-between p-md-5 p-4"> <span class="h5 fw-bold m-0">Deposite
+                                Balance</span>
+                        </div>
+                
+                        <form [formGroup]="depositeForm">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex flex-column px-md-5 px-4 mb-4"> <span>Add Amount</span>
+                                        <div class="inputWithIcon">
+                                            <input (keyup)="minAmountCheck(Amount.value)" #Amount class="form-control"
+                                                formControlName="depositeAmount" placeholder="Enter Amount.." value="" type="number">
+                                        </div>
+                                        <div class="text-danger" *ngIf="isMinAmount == false">Minimum Amount should be 1000 Rs </div>
+                                    </div>
+                                </div>
+                
+                            </div>
+                
+                            <div class="col-12">
+                                <div class="d-flex flex-column px-md-5 px-4 mb-4"> <span>Transaction Id</span>
+                                    <div class="inputWithIcon"> <input formControlName="transactionId" class="form-control " type="text"
+                                            placeholder="Enter Transaction Id..">
+                
+                                    </div>
+                
+                                    <div style="margin-top: 5px;"> <label>Make Sure Transaction Id is veryfied.</label></div>
+                                </div>
+                            </div>
+                            <div class="col-12 px-md-5 px-4 mt-3">
+                                <button [disabled]="depositeForm.invalid" class="btn btn-primary w-100" (click)="pay()">SUBMIT</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+

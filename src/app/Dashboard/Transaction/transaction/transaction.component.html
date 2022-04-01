@@ -1,0 +1,32 @@
+<section class="ftco-section">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-6 mb-5">
+                <h2 class="heading-section">Transaction log</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table" >
+                      <thead class="thead-primary">
+                        <tr>
+                          <th>Transaction Type</th>
+                          <th>Amount</th>
+                          <th>Transaction Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of transactionLog">
+                          <th scope="row">{{item.transactionType}}</th>
+                          <td>{{item.transactionAmount}}</td>
+                          <td *ngIf="item.transactionStatus == false"><i class="fa fa-clock-o"></i>Pending</td>
+                          <td *ngIf="item.transactionStatus == true"><i class="fa fa-check"></i>Success</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

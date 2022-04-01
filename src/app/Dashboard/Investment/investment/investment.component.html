@@ -1,0 +1,43 @@
+<section  class="dark">
+	<div class="container py-4">
+		<h1 *ngIf="myInvestment != null" class="h1 text-center" id="pageHeaderTitle">MY INVESTMENT</h1>
+        <h1 *ngIf="myInvestment == null" class="h1 text-center" id="pageHeaderTitle">No investment Yet</h1>
+        <div *ngIf="myInvestment == null" class="investbtn">
+            <button  class=" btn btn-light" routerLink="../">Invest Now</button>
+        </div>
+        <div *ngIf="myInvestment != null">
+            <article *ngFor="let item of myInvestment" class="postcard dark blue" >
+                <a class="postcard__img_link">
+                    <img class="postcard__img" src="assets/images/Alpha_Plans.png" alt="Image Title" />
+                </a>
+                <div class="postcard__text">
+                    <h1 class="postcard__title blue"><a>{{item.planName}}</a></h1>
+                    <div class="postcard__subtitle small">
+                        <time datetime="2020-05-25 12:00:00">
+                            <i class="fas fa-calendar-alt mr-2"></i>Date : {{item.investmentDate}}
+                        </time>
+                    </div>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">
+                        Plan Price : {{item.planPrice}}<br>
+                        Validity : {{item.planValidity}}<br>
+                        Benefit : {{item.planBenefit}}<br>
+                       
+                    </div>
+                    
+                    <!-- <ul class="postcard__tagbox">
+                        <li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+                        <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+                        <li class="tag__item play blue">
+                            <a ><i class="fas fa-play mr-2"></i>Play Episode</a>
+                        </li>
+                    </ul> -->
+                </div>
+            </article>
+        </div>
+		
+
+	</div>
+</section>
+
+

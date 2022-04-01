@@ -1,0 +1,47 @@
+<main class="page payment-page">
+  <section class="payment-form dark">
+    <div class="container">
+      <div class="block-heading">
+        <h2>Withdrawl</h2>
+        <p>Minimum Withdrawl is not allowed below 500 Rs.</p>
+      </div>
+      <form [formGroup]="withdrawlForm">
+        <div class="products">
+          <div class="item">
+            <span class="price"> &#8377; {{userWithdrawlableBalance}}</span>
+            <p class="item-name">Total Balance</p>
+            <!-- <p class="item-description">Lorem ipsum dolor sit amet</p> -->
+          </div>
+
+          <div *ngIf="userBankDetails != null" class="total text-uppercase">Bank Details<span class="price">{{userBankDetails.bankHolderName}}</span><br>
+            <span class="price ">{{userBankDetails.bankAccountNumber}}</span><br>
+            <span class="price">{{userBankDetails.bankIfsc}}</span><br>
+            <span class="price ">{{userBankDetails.bankName}}</span>
+          </div>
+          <div *ngIf="userBankDetails == null">
+            <button routerLink="../bank" class="border px-3 p-1 add-experience"><i
+              class="fa fa-plus"></i>&nbsp;Add Bank</button>
+            <div  class="title text-danger">
+              No bank Account Added yet. Add your bank from above given button
+          </div>
+          </div>
+          
+        </div>
+        <div class="card-details">
+          <h3 class="title">Withdrawl Amount</h3>
+          <div class="row">
+            <div class="form-group col-sm-12">
+              <label for="card-holder">Enter Amount</label>
+              <input (keyup)="isValidAmount()" formControlName="amount" id="card-holder" type="number" class="form-control flex" placeholder="Minimum 500 Rs.."
+                aria-describedby="basic-addon1">
+            </div>
+            <div *ngIf="insufficientBalance == true" class="text-danger">Insufficient Balance</div>
+            <div class="col-sm-12 text-center">
+              <button (click)="proceed()" [disabled]="!withdrawlForm.valid" type="button" class="btn btn-success rounded-3" style="width: 100px;">Proceed</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,73 @@
+<div class="container mt-5 px-5">
+    <div class="mb-4" *ngIf="isBankAdded == false">
+        <h2>Add your Bank Details</h2> <span>Please make sure all the details are cross checked before submit.</span>
+    </div>
+    <div class="mb-4" *ngIf="isBankAdded == true">
+        <h2>Bank Account is already addded</h2> <span>If you want to add another Bank Account Delete this Bank account from below</span>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card p-3">
+                <h6 *ngIf="isBankAdded == false"  class="text-uppercase">Bank details</h6>
+                <form [formGroup]="bankData"  *ngIf="isBankAdded == false">
+                <div  class="inputbox mt-3"> <input formControlName='bankHolderName' type="text" name="name" class="form-control text-uppercase" > <span>ACCOUNT HOLDER NAME</span> </div>
+                <div  class="inputbox mt-3"> <input formControlName='bankAccountNumber' type="number" name="name" class="form-control" > <span>ACCOUNT NO.</span> </div>
+                <div  class="inputbox mt-3"> <input formControlName='bankIfsc' type="text" name="name" class="form-control text-uppercase" minlength="11" maxlength="11" > <span>IFSC CODE</span> </div>
+                <div  class="inputbox mt-3"> <select formControlName='bankName' type="text" name="name" class="form-control text-uppercase">
+                    <option value="">Select Bank</option>
+                    <option value="Allahabad Bank">Allahabad Bank</option>
+                    <option value="Axis Bank Ltd.">Axis Bank Ltd.</option>
+                    <option value="Bank of Baroda">Bank of Baroda</option>
+                    <option value="Bank of India">Bank of India</option>
+                    <option value="Bank of Maharashtra">Bank of Maharashtra</option>
+                    <option value="Canara Bank">Canara Bank</option>
+                    <option value="Central Bank of India">Central Bank of India</option>
+                    <option value="HDFC Bank Ltd">HDFC Bank Ltd</option>
+                    <option value="ICICI Bank Ltd.">ICICI Bank Ltd.</option>
+                    <option value="Indian Bank">Indian Bank</option>
+                    <option value="Indian Overseas Bank">Indian Overseas Bank</option>
+                    <option value="Punjab & Sind Bank">Punjab & Sind Bank</option>
+                    <option value="Punjab National Bank">Punjab National Bank</option>
+                    <option value="State Bank of India">State Bank of India</option>
+                    <option value="UCO Bank">UCO Bank</option>
+                    <option value="Union Bank of India">Union Bank of India</option>
+                </select> </div>
+                <div class="mt-4 mb-4 d-flex justify-content-between pull-right"> <button [disabled]="bankData.invalid" (click)="addBankData()" type="submit"  class="btn btn-success px-3">Add</button> </div>
+                </form>
+                
+                <!-- <div *ngIf="isBankAdded == true" class="card text-white bg-dark mb-3" >
+                    <div class="card-header text-uppercase"><p class="">{{foundBankAccount.bankHolderName}} <button (click)="deleteAccount()" class="pull-right btn btn-danger px-3" type="button"><i class="fa fa-trash"></i></button></p>
+                    </div>
+                    <div class="text-uppercase card-body">
+                      <p >{{foundBankAccount.bankAccountNumber}}</p>
+                      <p >{{foundBankAccount.bankIfsc}}</p>
+                      <p >{{foundBankAccount.name}}</p>
+                      <p>{{foundBankAccount.bankName}}</p>
+                    </div>
+                  </div> -->
+
+
+
+                  <div *ngIf="isBankAdded == true" class="card-container text-uppercase">
+                    <span class="pro">Already Added</span>
+                    <br>
+                    <br>
+                    <h6>Account Holder Name : <span>{{foundBankAccount.bankHolderName}}</span></h6>
+                    <h6>Account No. : <span>{{foundBankAccount.bankAccountNumber}}</span></h6>
+                    <h6>IFSC CODE : <span>{{foundBankAccount.bankIfsc}}</span></h6>
+                    <h6>Bank : <span>{{foundBankAccount.bankName}}</span></h6>
+                    <div class="buttons pull-right" >
+                        <button (click)="deleteAccount()" class="btn btn-danger">
+                            Delete
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
